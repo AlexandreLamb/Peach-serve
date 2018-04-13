@@ -1,0 +1,29 @@
+{
+  "name": "peach-server",
+  "version": "1.0.0",
+  "description": "Serveur hppt pour API REST",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "server",
+    "http",
+    "api",
+    "rest"
+  ],
+  "author": "Lambert Alexandre",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.6.0",
+    "bcrypt": "^2.0.0",
+    "body-parser": "^1.18.2",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.2.1",
+    "mysql": "^2.15.0",
+    "pg": "^4.4.3",
+    "pg-hstore": "^2.3.2",
+    "sequelize": "^3.30.4"
+  }
+}
