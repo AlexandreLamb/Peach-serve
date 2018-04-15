@@ -4,7 +4,8 @@ module.exports = (sequelize, DataTypes) => {
     codeBarre: DataTypes.INTEGER,
     dangerous: DataTypes.INTEGER,
     name: DataTypes.STRING,
-    description: DataTypes.STRING
+    description: DataTypes.STRING,
+    image: DataTypes.STRING
   }, {});
   pe.associate = function(models) {
     // associations can be defined here

@@ -28,11 +28,11 @@ module.exports = {
         allowNull: false,
         type: Sequelize.BOOLEAN
       },
-      /*allergie: {
+      allergies: {
         allowNull : true,
-        type:  Sequelize.RANGE(Sequelize.INTEGER)
+        type:  Sequelize.STRING
       
-      },*/
+      },
       age: {
         allowNull: false,
         type: Sequelize.INTEGER

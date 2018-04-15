@@ -17,7 +17,7 @@ module.exports = {
         var username = req.body.username;
         var password = req.body.password;
         var bio      = req.body.bio;
-        var allergie = req.body.allergie;
+        var allergies = req.body.allergies;
         var age      = req.body.age;
         if (email == null || username == null || password == null) {
             return res.status(400).json({'error': 'missing parameters'});
@@ -35,8 +35,8 @@ module.exports = {
         asyncLib.waterfall([
             function(done) {
                 models.user.findOne({
-                    attributes: ['email'],
-                    where: { email: email }
+                    attributes: ['username'],
+                    where: { username: username }
                 })
                 .then(function (userFound) {
                     done(null, userFound);
@@ -61,7 +61,7 @@ module.exports = {
                     password: bcryptedPassword,
                     bio: bio,
                     isAdmin: 0,
-                    allergie: allergie,
+                    allergies: allergies,
                     age: age
                 })
                 .then(function(newuser){
@@ -80,11 +80,11 @@ module.exports = {
         });
     },
     login: function(req ,res) {
-        console.log( req.body.email);
-        var email = req.body.email;
+        console.log( req.body.username);
+        var username = req.body.username;
         var password = req.body.password;
 
-        if (email == null || password == null) {
+        if (username == null || password == null) {
             return res.status(400).json({
                 'error': 'missing paramters'
             });
@@ -93,7 +93,7 @@ module.exports = {
         asyncLib.waterfall([
             function(done) {
                 models.user.findOne({
-                     where: {email: email}
+                     where: {username:username}
                 })
                 .then(function(userFound){
                     done(null,userFound);
@@ -120,7 +120,7 @@ module.exports = {
             }
         ], function(userFound) {
                 if(userFound) {
-                    return res.status(201).json({'success': userFound.email });
+                    return res.status(201).json({'success': userFound.username });
                 } else  {
                     return res.status(500).json({'error': 'cannot log on user'});
                 }   

@@ -1,16 +1,18 @@
 // Imports
-var express    = require('express');
+var express   = require('express');
 var bodyParser = require('body-parser');
 var apiRouter  = require('./apiRouter').router;
 var cors = require('cors');
+//var fileUpload = require('express-fileupload');
 //instatanciation serveur
 
 var server = express();
 
 // body parser config
-server.use(bodyParser.urlencoded({extend: true}));
+server.use(bodyParser.urlencoded({extended:true}));
 server.use(bodyParser.json());
 server.use(cors());
+//server.use(fileUpload()); 
 
 
 //configuration route
@@ -22,10 +24,7 @@ server.get('/', function (req,res) {
 });
 server.use('/api/',apiRouter);
 
-server.post('/api/test',function(req,res) {
-    console.log(req.body);
-    res.json(req.body);
-});
+
 // lancement du server
 server.listen(8080,function(){
     console.log('server listening');

@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       dangerous: {
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER
       },
       name: {
@@ -24,6 +24,10 @@ module.exports = {
         allowNull: true,
         type: Sequelize.STRING
       },
+      image:{
+        allowNull:true,
+        type:Sequelize.STRING
+      }, 
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
